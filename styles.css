@@ -1,8 +1,13 @@
 /* reset css */
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+}
+
+* {
   margin: 0;
   padding: 0;
 }
@@ -12,29 +17,49 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
-} 
+}
 
 
 /*************** 
@@ -43,17 +68,133 @@ h1, h2, h3, h4, h5, h6 {
 
 /* MAIN FONTS */
 @font-face {
-    font-family: 'nexa';
-    src: url('nexa-extralight-webfont.woff2') format('woff2'),
-         url('nexa-extralight-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'nexa';
+  src: url('nexa-extralight-webfont.woff2') format('woff2'),
+    url('nexa-extralight-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'nexa';
-    src: url('nexa-heavy-webfont.woff2') format('woff2'),
-         url('nexa-heavy-webfont.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'nexa';
+  src: url('nexa-heavy-webfont.woff2') format('woff2'),
+    url('nexa-heavy-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* MAIN LAYOUT */
+body {
+  font-family: hexa, sans-serif;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  background-color: #e7ebe2;
+}
+
+.main {
+  display: grid;
+  grid-template-areas:
+    "aside content content"
+    "aside content content"
+    "aside content content";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.side-banner {
+  position: relative;
+  grid-area: aside;
+  height: inherit;
+  border-right: 2px thin rgb(12, 33, 124);
+  box-shadow: 10px -1px 10em 4px rgb(0 0 0 / 50%);
+}
+
+.side-banner .background-image {
+  background-image: url("forest-matt-clark.jpg");
+  height: 100%;
+  background-attachment: initial;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  z-index: -10;
+  filter: blur(2px);
+}
+
+/* SIDEHEADER */
+
+.side-header {
+  position: relative;
+  width: 100%;
+}
+
+div.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(10, 10, 10, 0.5);
+  height: 360px;
+  width: inherit;
+  position: absolute;
+  top: 10em;
+  left: 0;
+  z-index: 10;
+}
+div.logo > img{
+  opacity: 0.8;
+}
+div.logo > h1{
+  color: #e2f4d3;
+  font-size: 3rem;
+  opacity: 0.8;
+  justify-self: flex-start;
+}
+/* CREDITS */
+footer.credits {
+  position: absolute;
+  bottom: 1em;
+  left: 30%;
+  color: white;
+  width: inherit;
+  font-weight: bold;
+  background-color: rgba(12, 12, 12, 25%)
+}
+
+footer.credits a{
+  text-decoration: none;
+ &:visited, &:link{
+    color: #a4afa1;
+  }
+  &:hover{
+    color: #a2a2a2;
+  }
+}
+
+footer.credits .author{
+  color: #a1a1b3;
+  line-height: 1.2rem;
+  letter-spacing: 0.1rem;
+  font-size: 120%;
+}
+
+/* CONTENT STYLING */
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+  padding: 2em 4em;
+  width: 100%;
+}
+
+.quote{
+  width: 100%;
+}
+
+.quote blockquote{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-style: italic;
 }
