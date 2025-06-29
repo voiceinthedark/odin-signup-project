@@ -15,27 +15,84 @@
         <div class="side-header">
           <div class="logo">
             <img src="logo.png" alt="form logo">
-              <h1>Anthem</h1>
+            <h1>Anthem</h1>
           </div>
         </div>
-        <footer class="credits">
-          <span>Photo by <span class="author">Matt Clark</span> at <a
-              href="https://unsplash.com/photos/a-forest-filled-with-lots-of-tall-trees-ehHvfRUaXfE"
-              target="_blank">Unpslash</a></span>
-        </footer>
+
       </div>
+      <footer class="credits">
+        <span>Photo by <span class="author">Matt Clark</span> at <a
+            href="https://unsplash.com/photos/a-forest-filled-with-lots-of-tall-trees-ehHvfRUaXfE"
+            target="_blank">Unpslash</a></span>
+      </footer>
     </aside>
-      <article class="content">
-        <section class="quote">
-          <blockquote>
-            Are you ready to embrace a world of wonder?
-            <br>
-            Signup now to enter a world of woe
-          </blockquote>
+    <article class="content">
+      <section class="quote">
+        <blockquote>
+          Are you ready to embrace a world of wonder?
+          <br>
+          Signup now to enter a world of woe
+        </blockquote>
+      </section>
+      <section class="form-section">
+        <form action="/" method="get">
+          <h1>Enter the twilight!</h1>
+          <fieldset>
+            <legend>Your personal information</legend>
+            <div class="form-row">
+              <div class="firstname-input">
+                <label for="name">
+                  Name
+                </label>
+                <input type="text" name="name" id="name">
+              </div>
+              <div class="lastname-input">
+                <label for="lastname">
+                  Last Name
+                </label>
+                <input type="text" name="lastname" id="lastname">
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="email">
+                  Email
+                </label>
+                <input type="email" name="email" id="email">
+              </div>
+              <div>
+                <label for="tel">
+                  Phone Number
+                </label>
+                <input type="tel" name="tel" id="tel" pattern="[0-9]{6,12}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="pwd">
+                  Password
+                </label>
+                <input type="password" name="pwd" id="pwd">
 
-        </section>
+              </div>
+              <div>
+                <label for="cpwd">
+                  Confirm Password
+                </label>
+                <input type="password" name="cpwd" id="cpwd">
 
-      </article>
+              </div>
+            </div>
+          </fieldset>
+          <section class="form-submit">
+              <button type="submit">Create Account</button>
+              <p>Already have an account? <a href="">Login</a></p>
+
+          </section>
+        </form>
+      </section>
+
+    </article>
 
   </main>
 </body>

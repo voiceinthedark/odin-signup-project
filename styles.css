@@ -66,6 +66,17 @@ h6 {
 * MAIN STYLING *
 * **************/
 
+:root{
+  --bg-color: #e7ebe2;
+  --bg-form-color: #e5e8e6;
+  --label-color: #1f2214;
+  --secondary-color: #343136;
+  --tertiary-color: #385848;
+  --secondary-font: #222121;
+  --button-color: #54eb7f;
+  --button-color-hover: #34ea6a;
+}
+
 /* MAIN FONTS */
 @font-face {
   font-family: 'nexa';
@@ -89,7 +100,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr;
-  background-color: #e7ebe2;
+  background-color: var(--bg-color);
 }
 
 .main {
@@ -110,16 +121,27 @@ body {
 }
 
 .side-banner .background-image {
-  background-image: url("forest-matt-clark.jpg");
+  display: flex;
+  flex-direction: column;
+  position: relative;
   height: 100%;
+  width: 100%;
+}
+
+.side-banner .background-image::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("forest-matt-clark.jpg");
+  height: inherit;
+  width: inherit;
   background-attachment: initial;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
-  flex-direction: column;
-  z-index: -10;
   filter: blur(2px);
+  z-index: 10;
 }
 
 /* SIDEHEADER */
@@ -142,15 +164,18 @@ div.logo {
   left: 0;
   z-index: 10;
 }
-div.logo > img{
+
+div.logo>img {
   opacity: 0.8;
 }
-div.logo > h1{
+
+div.logo>h1 {
   color: #e2f4d3;
   font-size: 3rem;
   opacity: 0.8;
   justify-self: flex-start;
 }
+
 /* CREDITS */
 footer.credits {
   position: absolute;
@@ -159,20 +184,24 @@ footer.credits {
   color: white;
   width: inherit;
   font-weight: bold;
-  background-color: rgba(12, 12, 12, 25%)
+  background-color: rgba(12, 12, 12, 25%);
+  z-index: 10;
 }
 
-footer.credits a{
+footer.credits a {
   text-decoration: none;
- &:visited, &:link{
+
+  &:visited,
+  &:link {
     color: #a4afa1;
   }
-  &:hover{
+
+  &:hover {
     color: #a2a2a2;
   }
 }
 
-footer.credits .author{
+footer.credits .author {
   color: #a1a1b3;
   line-height: 1.2rem;
   letter-spacing: 0.1rem;
@@ -180,21 +209,114 @@ footer.credits .author{
 }
 
 /* CONTENT STYLING */
-.content{
+.content {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: space-between;
-  padding: 2em 4em;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  height: inherit;
+  grid-area: content;
+}
+
+.quote {
   width: 100%;
 }
 
-.quote{
-  width: 100%;
-}
-
-.quote blockquote{
+.quote blockquote {
   font-size: 1.5rem;
   line-height: 2rem;
   font-style: italic;
 }
+
+/* form section */
+
+.form-section{
+  margin-top: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: var(--bg-form-color);
+  width: 100%;
+}
+
+.form-section h1{
+  color: #000;
+  font-size: 2rem;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+.form-section fieldset{
+  padding: 45px 10px;
+  display: flex;
+  flex-direction: column;
+  border-color: var(--secondary-color);
+  border-width: thin;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-style: groove;
+  box-shadow: 0px 25px 32px 3px var(--secondary-color);
+  position: relative;
+}
+
+.form-section fieldset legend{
+  color: #fff;
+  background-color: var(--tertiary-color);
+  position: absolute;
+  font-weight: 600;
+  font-size: 1.3rem;
+  bottom: -10px;
+  right: 10px;
+  padding: 5px 10px;
+}
+
+.form-row{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+.form-row label{
+  color: var(--label-color);
+}
+
+
+.form-row div{
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"]{
+  padding: 15px 8px;
+  border-radius: 5px;
+  border: 0.1rem solid gray;
+}
+/* LOGIN SECTION */
+.form-submit{
+  margin-top: 42px;
+  margin-left: 1em;
+  color: var(--secondary-font);
+}
+
+.form-submit button[type="submit"]{
+  font-size: 1.8rem;
+  background-color: var(--button-color);
+  padding: 18px 30px;
+  border: 1px solid olivedrab;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 14px 4px var(--button-color);
+
+  &:hover{
+    background-color: var(--button-color-hover);
+  }
+}
+
+
