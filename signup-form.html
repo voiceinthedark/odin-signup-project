@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -44,13 +45,13 @@
                 <label for="name">
                   Name
                 </label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" minlength="2" maxlength="15">
               </div>
               <div class="lastname-input">
                 <label for="lastname">
                   Last Name
                 </label>
-                <input type="text" name="lastname" id="lastname">
+                <input type="text" name="lastname" id="lastname" minlength="2" maxlength="15">
               </div>
             </div>
             <div class="form-row">
@@ -58,13 +59,13 @@
                 <label for="email">
                   Email
                 </label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" placeholder="email@example.com" >
               </div>
               <div>
                 <label for="tel">
                   Phone Number
                 </label>
-                <input type="tel" name="tel" id="tel" pattern="[0-9]{6,12}">
+                <input type="tel" name="tel" id="tel" pattern="[0-9]{6,12}" placeholder="01223223">
               </div>
             </div>
             <div class="form-row">
@@ -87,13 +88,10 @@
           <section class="form-submit">
               <button type="submit">Create Account</button>
               <p>Already have an account? <a href="">Login</a></p>
-
           </section>
         </form>
       </section>
-
     </article>
-
   </main>
 </body>
 

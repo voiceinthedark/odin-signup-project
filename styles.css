@@ -66,10 +66,11 @@ h6 {
 * MAIN STYLING *
 * **************/
 
-:root{
+:root {
   --bg-color: #e7ebe2;
   --bg-form-color: #e5e8e6;
-  --label-color: #1f2214;
+  --link-color: #426324;
+  --label-color: #2b2c2a;
   --secondary-color: #343136;
   --tertiary-color: #385848;
   --secondary-font: #222121;
@@ -212,7 +213,7 @@ footer.credits .author {
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   gap: 16px;
   width: 100%;
@@ -222,6 +223,7 @@ footer.credits .author {
 
 .quote {
   width: 100%;
+  margin-left: 14em;
 }
 
 .quote blockquote {
@@ -232,7 +234,7 @@ footer.credits .author {
 
 /* form section */
 
-.form-section{
+.form-section {
   margin-top: 1em;
   margin-left: 0;
   margin-right: 0;
@@ -240,13 +242,14 @@ footer.credits .author {
   width: 100%;
 }
 
-.form-section h1{
+.form-section h1 {
   color: #000;
   font-size: 2rem;
   margin-left: 1em;
   margin-bottom: 1em;
 }
-.form-section fieldset{
+
+.form-section fieldset {
   padding: 45px 10px;
   display: flex;
   flex-direction: column;
@@ -260,7 +263,7 @@ footer.credits .author {
   position: relative;
 }
 
-.form-section fieldset legend{
+.form-section fieldset legend {
   color: #fff;
   background-color: var(--tertiary-color);
   position: absolute;
@@ -271,41 +274,59 @@ footer.credits .author {
   padding: 5px 10px;
 }
 
-.form-row{
+.form-row {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   gap: 16px;
+  margin-bottom: 20px;
 }
-.form-row label{
+
+.form-row label {
+  position: absolute;
+  top: 3px;
+  left: 10px;
   color: var(--label-color);
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
 }
 
 
-.form-row div{
+.form-row div {
   display: flex;
   flex-direction: column;
   width: inherit;
+  position: relative;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="password"]{
-  padding: 15px 8px;
+input[type="password"] {
+  padding: 35px 8px 5px 8px;
   border-radius: 5px;
   border: 0.1rem solid gray;
+
+  &:focus {
+    border: 0.1rem solid turquoise;
+  }
+
+  &:invalid {
+    border: 0.2rem solid red;
+  }
 }
+
+
 /* LOGIN SECTION */
-.form-submit{
+.form-submit {
   margin-top: 42px;
   margin-left: 1em;
   color: var(--secondary-font);
 }
 
-.form-submit button[type="submit"]{
+.form-submit button[type="submit"] {
   font-size: 1.8rem;
   background-color: var(--button-color);
   padding: 18px 30px;
@@ -314,9 +335,39 @@ input[type="password"]{
   margin-bottom: 10px;
   box-shadow: 0 1px 14px 4px var(--button-color);
 
-  &:hover{
+  &:hover {
     background-color: var(--button-color-hover);
   }
 }
 
+.form-submit p {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 
+.form-submit a{
+  color: var(--link-color);
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+/* HELPER STYLES */
+.nomatch {
+  background-color: palevioletred;
+
+  & + label {
+    color: black;
+  }
+
+}
+
+.match {
+  background-color: yellowgreen;
+
+  & + label {
+    color: black;
+  }
+}
